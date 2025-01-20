@@ -1,0 +1,30 @@
+<!-- request/templates/request/track_request.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Service Request</title>
+</head>
+<body>
+    <h1>Track Your Service Request</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Track Request</button>
+    </form>
+
+    {% if request_details %}
+        <h2>Request Details:</h2>
+        <p><strong>Request ID:</strong> {{ request_details.id }}</p>
+        <p><strong>Customer Name:</strong> {{ request_details.customer_name }}</p>
+        <p><strong>Service Type:</strong> {{ request_details.service_type }}</p>
+        <p><strong>Status:</strong> {{ request_details.status }}</p>
+        <p><strong>Created At:</strong> {{ request_details.created_at }}</p>
+        <p><strong>Updated At:</strong> {{ request_details.updated_at }}</p>
+    {% elif request_details is not None %}
+        <p>No request found with the provided ID.</p>
+    {% endif %}
+</body>
+</html>

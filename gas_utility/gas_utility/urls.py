@@ -25,7 +25,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),  # This redirects to your homepage view
-    path('requests/', include('requests.urls')),
+
+
+    path('requests/', include('requests.urls')),  # Make sure this is included
 ]
 
 

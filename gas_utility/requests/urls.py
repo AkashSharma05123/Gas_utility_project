@@ -1,7 +1,8 @@
+# requests/urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('submit/', views.submit_request, name='submit_request'),  # For submitting requests
-    path('track/', views.track_request, name='track_request'),      # For tracking requests
+    path('submit/', views.submit_request, name='submit_request'),
+    path('track/', views.track_request, name='track_request'),  # Track request page URL
 ]
